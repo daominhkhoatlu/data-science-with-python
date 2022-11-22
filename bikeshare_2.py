@@ -15,6 +15,18 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 
+def validate_input(message, valid_inputs):
+    try:
+        text = str(input(message)).lower()
+        while text not in valid_inputs:
+            print("Invalid input! Please try again!")
+            text = str(input(message)).lower()
+        print("Your choice is: {}".format(text))
+        return text
+    except:
+        print("Invalid input!")
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
